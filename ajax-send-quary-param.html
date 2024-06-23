@@ -7,9 +7,9 @@
   </head>
   <body>
     <form>
-      <label for="username">
-        Username:
-        <input type="text" id="username" name="username" />
+      <label for="search">
+        Search:
+        <input type="text" id="search" name="search" />
       </label>
       <br />
 
@@ -23,7 +23,7 @@
         param.append("username", document.getElementById("username").value);
 
         ajax.open(
-          "GET",
+          "POST",
           `https://hookb.in/your-endpoint-url?${param.toString()}`
         );
         ajax.onload = function () {
