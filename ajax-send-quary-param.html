@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX send query parameter</title>
+  </head>
+  <body>
+    <form>
+      <label for="username">
+        Username:
+        <input type="text" id="username" name="username" />
+      </label>
+      <br />
+
+      <button type="button" id="btn-search">Search</button>
+    </form>
+    <script>
+      function doSearch() {
+        const ajax = new XMLHttpRequest();
+
+        const param = new URLSearchParams();
+        param.append("username", document.getElementById("username").value);
+
+        ajax.open(
+          "GET",
+          `https://hookb.in/your-endpoint-url?${param.toString()}`
+        );
+        ajax.onload = function () {
+          console.info(ajax.responseText);
+        };
+
+        ajax.send();
+      }
+      document.getElementById("btn-search").onclick = doSearch;
+    </script>
+  </body>
+</html>
