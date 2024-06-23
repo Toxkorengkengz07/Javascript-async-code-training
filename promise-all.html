@@ -37,21 +37,15 @@
           ajax.send();
         });
       }
-      getProduct("product")
-        .then(function (response) {
-          return JSON.parse(response);
-        })
-        .then(function (product) {
-          document.getElementById("id").innerHTML = product.id;
-          document.getElementById("name").innerHTML = product.name;
-          document.getElementById("price").innerHTML = product.price;
-        })
-        .catch(function (error) {
-          console.error("Error fetching product:", error);
-        })
-        .finally(function () {
-          console.info("Finally");
-        });
+
+      const promise = new Promise.all([
+        getProduct("product1"),
+        getProduct("product2"),
+        getProduct("product3"),
+      ]);
+      promise.then(function (products) {
+        console.info(products);
+      });
     </script>
   </body>
 </html>
