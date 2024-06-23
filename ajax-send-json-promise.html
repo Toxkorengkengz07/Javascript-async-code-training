@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX send JSON</title>
+  </head>
+  <body>
+    <form>
+      <label for="username">
+        Username:
+        <input type="text" id="username" name="username" />
+      </label>
+      <br />
+      <label for="password">
+        Password:
+        <input type="password" id="password" name="password" />
+      </label>
+      <br />
+      <button type="button" id="login">Login</button>
+    </form>
+    <script>
+      function doLogin() {
+        const ajax = new XMLHttpRequest();
+        ajax.open("POST", "https://hookb.in/your-endpoint-url");
+        ajax.onload = function () {
+          console.info(ajax.responseText);
+        };
+        ajax.setRequestHeader("Content-Type", "application/json");
+        ajax.send(
+          JSON.stringify({
+            username: document.getElementById("username").value,
+            password: document.getElementById("password").value,
+          })
+        );
+      }
+      document.getElementById("login").onclick = doLogin;
+    </script>
+  </body>
+</html>

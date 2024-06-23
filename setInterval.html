@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="header"></h1>
+  </body>
+  <script>
+    const setTime = () => {
+      const header = document.getElementById("header");
+      header.textContent = new Date().toString();
+
+      document.body.appendChild(header);
+    };
+
+    setInterval(setTime, 1000);
+    console.info("done");
+  </script>
+</html>

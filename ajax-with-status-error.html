@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX with status</title>
+  </head>
+  <body>
+    <h1 id="response">Menunggu respon...</h1>
+    <script>
+      function displayResponse(json) {
+        const header = document.getElementById("response");
+        header.textContent = json.response;
+      }
+
+      const ajax = new XMLHttpRequest();
+      ajax.open("GET", "api/hello.json", true);
+      ajax.addEventListener("load", function () {
+        if (ajax.status === 200) {
+          const response = JSON.parse(ajax.responseText);
+          displayResponse(response);
+        } else {
+          displayResponse({
+            response: `Terjadi kesalahan status ${ajax.status}`,
+          });
+        }
+      });
+      ajax.send();
+    </script>
+  </body>
+</html>
