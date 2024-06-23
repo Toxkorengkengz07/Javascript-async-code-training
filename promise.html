@@ -1,0 +1,64 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise</title>
+  </head>
+  <body>
+    <script>
+      const promise = new Promise(function (resolve, reject) {
+        // resolve("succes");
+        //reject("Error");
+        const ajax = new XMLHttpRequest();
+        ajax.open("GET ", "api/product.json");
+        ajax.onload = function () {
+          if (ajax.status === 200) {
+            resolve(JSON.parse(ajax.responseText));
+          } else {
+            reject(`Error : ${ajax.responseText}`);
+          }
+        };
+        ajax.send();
+      });
+      console.info(promise);
+    </script>
+  </body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise</title>
+  </head>
+  <body>
+    <script>
+      const promise = new Promise(function (resolve, reject) {
+        const ajax = new XMLHttpRequest();
+        ajax.open("GET", "api/product.json"); // Removed the extra space here
+        ajax.onload = function () {
+          if (ajax.status === 200) {
+            resolve(JSON.parse(ajax.responseText));
+          } else {
+            reject(`Error: ${ajax.statusText}`);
+          }
+        };
+        ajax.onerror = function () {
+          reject("Network Error");
+        };
+        ajax.send();
+      });
+
+      promise
+        .then((response) => {
+          console.info("Success:", response);
+        })
+        .catch((error) => {
+          console.error("Failed:", error);
+        });
+    </script>
+  </body>
+</html>
