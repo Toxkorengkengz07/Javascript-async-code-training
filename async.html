@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asyn</title>
+  </head>
+  <body>
+    <script>
+      //promies string
+      function getNamePromise() {
+        return new Promise(function (resolve, reject) {
+          resolve("vito promise");
+        });
+      }
+
+      async function getNameAsync() {
+        return "vito async";
+      }
+      getNamePromise().then((name) => console.info(name));
+      getNameAsync().then((name) => console.info(name));
+    </script>
+  </body>
+</html>
