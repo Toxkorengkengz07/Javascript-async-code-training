@@ -8,7 +8,7 @@
   <body>
     <button id="btn-task">Click me</button>
     <script>
-      const worker = new Worker(worker.js);
+      const worker = new Worker("worker.js");
       worker.addEventListener("message", function (message) {
         console.log(message.data);
       });
