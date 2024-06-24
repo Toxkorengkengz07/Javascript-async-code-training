@@ -1,5 +1,80 @@
-apa itu sycronus
+apa itu syncronous
+Program dalam JavaScript secara default akan dieksekusi baris per baris
+Secara default, proses di JavaScript akan dieksekusi secara Synchronous, artinya baris selanjutnya akan dieksekusi setelah baris sebelumnya selesai dikerjakan
+Proses Synchronous juga biasa disebut Blocking, karena harus menunggu tiap proses selesai, baru proses selanjutnya bisa dilakukan
 
+apa itu asyncronous
+Walaupun secara default proses di JavaScript dieksekusi secara Synchronous, namun kita bisa membuatnya menjadi Asynchronous.
+Berbeda dengan proses Synchronous, pada proses Asynchronous, JavaScript tidak akan menunggu proses tersebut selesai, melainkan JavaScript akan melanjutkan baris selanjutnya, tanpa harus menunggu proses Asynchronous selesai.
+Proses Asynchronous juga biasa disebut Non-Blocking.
+
+apa itu callback
+Callback, merupakan mekanisme untuk memanggil kembali kode yang ada di program dari proses Async
+Callback biasanya dibuat dalam bentuk function, dan function tersebut akan dieksekusi saat proses Async selesai
+Dengan menggunakan Callback, program bisa menerima informasi yang dibutuhkan dari proses yang berjalan secara Async
 
 apa itu AJAX?
-AJAX adalah
+AJAX singkatan dari Asynchronous JavaScript and XML
+AJAX dapat digunakan untuk mengambil data dari server setelah halaman web tampil
+AJAX dapat digunakan untuk mengubah tampilan web tanpa harus me-load ulang web
+AJAX dapat mengirim data ke server secara async di background
+
+AJAX callback
+AJAX biasanya digunakan untuk mengirim data ke Server atau menerima data dari Server
+Tiap request AJAX yang dilakukan, biasanya kita ingin mendapat informasi response yang diberikan oleh Server
+Kita tidak bisa langsung mengambil response AJAX, karena proses AJAX adalah Async, sehingga kita perlu menunggu sampai proses Async nya selesai.
+Untuk mendapatkan informasi AJAX, kita bisa menggunakan AJAX Callback, yang akan dieksekusi setelah proses AJAX selesai
+
+AJAX error callback
+AJAX adalah proses komunikasi Client dan Server
+Dalam komunikasi Client dan Server, kita tidak bisa selalu menganggap proses tersebut akan berjalan lancar.
+Akan ada banyak hal-hal yang bisa mengganggu proses AJAX yang bisa menyebabkan error, seperti; koneksi internet bermasalah, error dari server, data dari client tidak valid, dan lain-lain.
+Hal-hal error seperti ini perlu ditangani pada kode program kita. Dan kita bisa menggunakan Error Callback di AJAX
+
+Dynamic callback
+Kadang dalam membuat program JavaScript, kita ingin membuat callback yang dinamis.
+Bisa berubah-ubah sesuai kebutuhan kita
+Untuk membuat Dynamic Callback, kita bisa memanfaatkan function as argument di JavaScript, dimana callback function nya kita masukkan dalam argument, sehingga bisa diubah sesuai dengan keinginan kita
+
+
+apa itu promise
+Promise merupakan proxy untuk sebuah nilai di masa depan (Future) yang belum diketahui saat pembuatan Promise tersebut.
+Biasa Promise digunakan sebagai proxy untuk proses Async.
+Penggunaan Promise sangat mudah, dan lebih mirip dengan kode Synchronous.
+
+Promise catch method
+Pada AJAX, jika terjadi error, kita bisa menggunakan Error Callback, bagaimana dengan Promise?
+Promise memiliki method yang bernama Catch. Catch Method ini digunakan sebagai Error Callback yang bisa gunakan seperti Then Method.
+
+Promise Finally method
+Kadang kita ingin menjalankan kode tertentu, baik itu saat sukses ataupun error.
+Hal ini bisa dilakukan juga di Promise, menggunakan Finally Method
+
+Promise All method
+Kadang kita perlu berhadapan dengan beberapa proses Async sekaligus.
+Misal, mengambil detail data produk dari Server pada satu halaman web, dimana satu halaman bisa menampilkan lebih dari satu produk.
+Menggunakan Promise satu per satu sangatlah menyulitkan  jika terlalu banyak, tapi untungnya Promisa memiliki method All.
+All method bisa kita gunakan untuk menggabungkan beberapa Promise, menjadi Promise baru yang berisi data Array hasil Promise-Promise tersebut
+
+
+fetch API
+Fetch API adalah API baru untuk melakukan AJAX
+Tidak seperti AJAX yang menggunakan Callback, Fetch API menggunakan Promise, sehingga kita bisa mudah menggunakan Fetch API dibanding AJAX
+https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+
+
+Async await
+Async Await adalah fitur baru JavaScript yang digunakan untuk mempermudah proses pembuatan code Promise.
+Dengan menggunakan Async Await, kita bisa membuat kode Asynchronous dengan gaya Synchronous
+Async digunakan untuk menandakan bahwa Function tersebut adalah Async, dan mengembalikan Promise
+Await digunakan untuk mendapatkan value hasil dari Function yang mengembalikan Promise.
+Await hanya bisa digunakan dalam Async Function
+
+async await error handler
+Pada Callback dan Promise, ada mekanisme Error Handler yang bisa dilakukan. Bagaimana dengan Async Await?
+Pada Async Await, kita bisa menggunakan gara Synchronous untuk menggunakan Error Handler nya, yaitu menggunakan try-catch dan try-catch-finally
+
+web worker
+Web Worker adalah kemampuan yang untuk menjalankan proses di Thread yang berbeda dibanding Main Thread. 
+Keuntungan menggunakan Web Worker adalah, jika terdapat proses yang membutuhkan waktu lama, Web kita tidak akan Freeze, karena proses tersebut bisa kita jalankan di Thread yang berbeda dari Main Thread (yang biasa digunakan oleh UI)
+https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API
