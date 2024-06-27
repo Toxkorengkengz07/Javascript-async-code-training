@@ -1,4 +1,4 @@
-#catatan coding vito korengkeng @toxkorengkengz07
+#catatan coding vito korengkeng @toxkorengkengz07 fb : vito korengkeng sumual
 apa itu syncronous
 Program dalam JavaScript secara default akan dieksekusi baris per baris
 Secara default, proses di JavaScript akan dieksekusi secara Synchronous, artinya baris selanjutnya akan dieksekusi setelah baris sebelumnya selesai dikerjakan
